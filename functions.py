@@ -14,7 +14,7 @@ except Exception as e:
     print("Cannot operate without dependencies, please\n"
           "install:\n"
           "-> pyttsx3\n"
-          "-> speechRecognition\n"
+          "-> SpeechRecognition\n"
           "-> datetime\n"
           "-> wikipedia\n"
           "-> webbrowser\n"
@@ -31,7 +31,7 @@ except Exception as e:
         import os
         os.system("pip install pipwin")
         os.system("pipwin install PyAudio")
-        os.system("pip install pyttsx3 speechRecognition wikipedia webbrowser")
+        os.system("pip install pyttsx3 SpeechRecognition wikipedia webbrowser")
         email = input("please enter your email: (needed for emailing feature): ")
         password = input("please enter your password: (so that I can mail on behalf of you): ")
         print("Dont worry, ill keep your password safe, I promise.")

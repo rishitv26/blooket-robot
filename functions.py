@@ -49,6 +49,7 @@ password = '{password}'
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
+os.system('cls')
 
 # -------------- Primary Functions: ----------------
 
@@ -74,21 +75,21 @@ def storage(action, new_data=''):
 def current_date():
     """ This function is here to tell the current date to JARVIS """
     num_to_month = {
-        '1': 'January',
-        '2': 'February',
-        '3': 'March',
-        '4': 'April',
-        '5': 'May',
-        '6': 'June',
-        '7': 'July',
-        '8': 'August',
-        '9': 'September',
-        '10': 'October',
-        '11': 'November',
-        '12': 'December',
+        1: 'January',
+        2: 'February',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+        8: 'August',
+        9: 'September',
+        10: 'October',
+        11: 'November',
+        12: 'December',
     }
-    now = str(datetime.datetime.now()).split()[0]
-    date = f'{num_to_month[now[5:7]]} {now[8:10]}, {now[0:4]}'
+    now = datetime.datetime.now()
+    date = f'{num_to_month[int(now.strftime("%m"))]} {now.strftime("%d")}, {now.strftime("%Y")}'
     return date
 
 

@@ -43,7 +43,7 @@ while True:
 
     elif 'open' in query.lower() and '.' in query.lower() and 'google' in query.lower():
         """this function is very specific on what format you say, you must start with: 
-        open (whatever website with domain-name) """
+        open (whatever website with domain-name) in google"""
 
         speak(f'Opening {query.split()[1]}...')
         try:
@@ -105,13 +105,12 @@ while True:
 
     # open pycharm:
 
-    elif 'open pycharm' in query.lower():
-        path = 'C:/Program Files/JetBrains/PyCharm Community Edition 2021.1.3/bin/pycharm64.exe'
-        speak("Opening Pycharm...")
-        os.startfile(path)
+    elif 'open vscode' in query.lower() or 'open code' in query.lower() or 'code editor' in query.lower() or 'ide' in query.lower():
+        speak("Opening VS Code...")
+        os.system("code")
 
     # exit Jarvis:
 
-    elif 'exit' in query.lower() or 'quit' in query.lower():
+    elif 'exit' in query.lower() or 'quit' in query.lower() or 'shut down' in query.lower():
         speak('Exiting JARVIS...')
         break

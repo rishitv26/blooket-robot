@@ -38,8 +38,8 @@ except Exception as e:
         print("Can you also please check your accounts to be usable with smtp mail? it will save alot of headaches later.")
         f = open("private.py", "w")
         f.write(f"""\
-email = {email}
-password = {password}        
+email = '{email}'
+password = '{password}'        
 """)
         f.close()
 

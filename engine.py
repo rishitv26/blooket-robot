@@ -108,6 +108,13 @@ while True:
     elif 'open vscode' in query.lower() or 'open code' in query.lower() or 'code editor' in query.lower() or 'ide' in query.lower():
         speak("Opening VS Code...")
         os.system("code")
+    
+    # pause the system:
+
+    elif 'pause' in query.lower():
+        speak("Pausing System...")
+        input("Press Enter to Resume...")
+        speak("Resuming System...")
 
     # exit Jarvis:
 

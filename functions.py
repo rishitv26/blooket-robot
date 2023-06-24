@@ -123,7 +123,6 @@ def command():
         query = r.recognize_google(audio, language='en-us')
         print(f'> {query}')
     except:
-        speak("Sorry, what did you say?")
         query = None
 
     return query
@@ -154,7 +153,7 @@ def filter_query(query):
 
 def browse(url):
     """ Browse google for a url given """
-    path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
     webbrowser.get(path).open(url)
 
 

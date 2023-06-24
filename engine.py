@@ -41,15 +41,30 @@ while True:
 
     # open a website using google:
 
-    elif 'open' in query.lower() and '.' in query.lower() and 'google' in query.lower():
+    elif 'open' in query.lower() and ('.' in query.lower() or 'dot' in query.lower()) and 'google' in query.lower():
         """this function is very specific on what format you say, you must start with: 
         open (whatever website with domain-name) in google"""
+        speak(f"Is this the URL:\n\t{query.split()[1]}")
+        res = input("(y/n)> ")
+        url = query.split()[1]
+        if res.lower() == 'n':
+            for i in range(2):
+                speak("What URL would you like to open?")
+                query = command()
+                while query is not None:
+                    query = command()
+                speak(f"Is this the URL:\n\t{query}")
+                res = input("(y/n)> ")
+                if res.lower() == 'y':
+                    break
+            speak("Can you please type your desired URL?")
+            url = input("> ")
 
-        speak(f'Opening {query.split()[1]}...')
+        speak(f'Opening {url}...')
         try:
-            browse(query.split()[1])
+            browse(url)
         except:
-            speak(f"Sorry, cant open {query.split()[1]}")
+            speak(f"Sorry, cant open {url}")
 
     # add people's email in contacts:
 
@@ -71,7 +86,8 @@ while True:
     # show saved contacts:
 
     elif 'show' in query.lower() and 'contacts' in query.lower():
-        speak(show_contacts())
+        for i in show_contacts():
+            speak(i)
 
     # send emails via gmail:
 
@@ -118,6 +134,6 @@ while True:
 
     # exit Jarvis:
 
-    elif 'exit' in query.lower() or 'quit' in query.lower() or 'shut down' in query.lower():
+    elif 'exit' in query.lower() or 'quit' in query.lower() or 'shut down' in query.lower() or 'die' in query.lower():
         speak('Exiting JARVIS...')
         break

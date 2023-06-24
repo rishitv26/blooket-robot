@@ -51,7 +51,7 @@ while True:
             for i in range(2):
                 speak("What URL would you like to open?")
                 query = command()
-                while query is not None:
+                while query is None:
                     query = command()
                 speak(f"Is this the URL:\n\t{query}")
                 res = input("(y/n)> ")
@@ -121,7 +121,7 @@ while True:
 
     # open pycharm:
 
-    elif 'open vscode' in query.lower() or 'open code' in query.lower() or 'code editor' in query.lower() or 'ide' in query.lower():
+    elif 'open vs code' in query.lower() or 'open code' in query.lower() or 'code editor' in query.lower() or 'ide' in query.lower():
         speak("Opening VS Code...")
         os.system("code")
     

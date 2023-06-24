@@ -1,4 +1,5 @@
 # ---------------- Dependency Startups: ------------
+
 try:
     import pyttsx3
     import speech_recognition as sr
@@ -24,6 +25,25 @@ except Exception as e:
           ""
           "please install all these python modules in your\n"
           "envoirment.")
+    result = input("may I install for you? (y/n): ")
+    if result.lower() == 'y':
+        # install proccess:
+        import os
+        os.system("pip install pipwin")
+        os.system("pipwin install PyAudio")
+        os.system("pip install pyttsx3 speechRecognition wikipedia webbrowser")
+        email = input("please enter your email: (needed for emailing feature): ")
+        password = input("please enter your password: (so that I can mail on behalf of you): ")
+        print("Dont worry, ill keep your password safe, I promise.")
+        print("Can you also please check your accounts to be usable with smtp mail? it will save alot of headaches later.")
+        f = open("private.py", "w")
+        f.write(f"""\
+email = {email}
+password = {password}        
+""")
+        f.close()
+
+    exit(0)
 
 # -------------- Initialization: ---------------
 engine = pyttsx3.init('sapi5')

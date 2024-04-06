@@ -96,6 +96,7 @@ while True:
         speak('Who would you like to send an email? Please type it out:')
         who = input('(use nicknames from contacts)> ')
         contacts = show_contacts()
+        print(contacts)
         for i in contacts:
             counter = 0
             if who in i:
@@ -105,9 +106,15 @@ while True:
             counter += 1
         if not_in_contacts is None:
             send_to = who
+        print(send_to)
 
         speak('Your body:')
-        body = command().capitalize() + '.'
+        try:
+            body = command().capitalize() + '.'
+        except:
+            while body is None:
+                body = command()
+        body = body.capitalize() + '.'
 
         speak('Your subject:')
         subject = command()
